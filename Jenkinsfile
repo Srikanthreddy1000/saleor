@@ -11,8 +11,13 @@ pipeline {
         }
         stage('docker image build') {
             steps {
-                sh 'docker image build -t shaikkhajaibrahim/saleor-devops:DEV1.0 .'
+                sh 'sudo docker image build -t shaikkhajaibrahim/saleor-devops:DEV1.0 .'
             }
         }
+        stage('push image to registry') {
+            steps {
+                sh 'docker image push shaikkhajaibrahim/saleor-devops:dev2.0'
+            }
      }
    }
+}
